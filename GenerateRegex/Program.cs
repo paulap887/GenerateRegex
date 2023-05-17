@@ -19,7 +19,7 @@ public class Program
             "IP address",
             "Hexadecimal color code",
             "Credit card number",
-            "Social security number",
+            "ID number",
             "Postal code",
             "URL",
             "Currency",
@@ -60,8 +60,8 @@ public class Program
                 string creditCardFormat = GetUserInput("Enter the credit card number format: ");
                 regexPattern += GetCreditCardRegex(creditCardFormat);
                 break;
-            case 6: // Social security number
-                string ssnFormat = GetUserInput("Enter the social security number format: ");
+            case 6: // ID number
+                string ssnFormat = GetUserInput("Enter the ID number format: ");
                 regexPattern += Regex.Escape(ssnFormat);
                 break;
             case 7: // Postal code
@@ -134,15 +134,7 @@ public class Program
             case "Visa":
                 return @"^4[0-9]{12}(?:[0-9]{3})?$";
             case "Mastercard":
-                return @"^5[1-5][0-9]{14}$";
-            case "American Express":
-                return @"^3[47][0-9]{13}$";
-            case "Discover":
-                return @"^6(?:011|5[0-9]{2})[0-9]{12}$";
-            case "Diners Club":
-                return @"^3(?:0[0-5]|[68][0-9])[0-9]{11}$";
-            case "JCB":
-                return @"^(?:2131|1800|35\d{3})\d{11}$";
+                return @"^5[1-5][0-9]{14}$"; 
             default:
                 return Regex.Escape(creditCardFormat);
         }
